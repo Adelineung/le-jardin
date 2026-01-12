@@ -95,7 +95,7 @@ source: https://youtu.be/uiI6Z_0Q2Io
   -> max amount of oxygen you body can consume during exercise, also called cardiorespiratory fitness 
   -> the higher the vo2max, the higher level of cardio fitness and endurance 
 	- *20 oct 2025: **38.8 VO2max***
-		![[_images/vo2_oct_25.png|300]]
+		![[_images/vo2_oct_2025.png|300]]
 	- omg... let's set the goal to be 40 by the end of the year . .. . ? ? *YEAHH?? ?*
 - **Max HR** = 220 - age = 190 bpm
 - **AEROBIC** zones:

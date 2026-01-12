@@ -79,9 +79,9 @@ but a good rule of thumb,
 ![[_images/angry_crying_emoji.jpg]]
 *oct 2025-- i am currently oscillating between 35-39... gasp*
 
-|                                                                                  |                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| **october 25** -- *dear lord please help me*<br>![[_images/vo2_oct_25.png\|300]] | **november 25** -- *sweet jesus*<br>![[_images/vo2_nov_25.png\|300]] |
+|                                                                                    |                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| **october 25** -- *dear lord please help me*<br>![[_images/vo2_oct_2025.png\|300]] | **november 25** -- *sweet jesus*<br>![[_images/vo2_nov_2025.png\|300]] |
 
 
 ### sources

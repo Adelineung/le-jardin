@@ -61,10 +61,10 @@ goal: clean, enhance data with more properties, such as genre, type, customised 
 2 methods:
 ##### either semi-manual
 - e.g. copy paste to chatbot for assistance with specific prompt engineering 
-	- **observation: the chatbots online (chatgpt, deepseek) are more performant than those local models...** 
+	- **observation: the chatbots online (chatgpt, deepseek) are more effective than those local models...** 
 
 ##### ... or automatised
-- spacy: open-source library for NLP tasks (POS = Part-of-Speech)-> simpler if just need to get grammatical category
+- spacy: open-source library for NLP tasks (POS = Part-of-Speech) -> simpler if just need to get grammatical category
 	- **observation: : not super accurate, not convincing.** 
 ```python
 nlp = spacy.load("es_core_news_sm")
@@ -82,7 +82,7 @@ for word in words:
     })
 ```
 
-- ollama: platform that enables llms to run locally (e.g. Mistral)-> more "overkill"
+- ollama: platform that enables llms to run locally (e.g. Mistral) -> more "overkill"
 	- simple prompt i.e. zero-shot prompting 
 	- with examples i.e. few-shot prompting 
 		- **observation: not perfectly accurate or consistent.** 
