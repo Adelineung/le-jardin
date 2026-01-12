@@ -1,0 +1,42 @@
+#!/usr/bin/env python3
+import re
+import sys
+
+def clean_comments(content):
+    """Remove %%comments%% and their entire lines"""
+    lines = content.split('\n')
+    result = []
+    in_comment = False
+    comment_lines = []
+    
+    for line in lines:
+        if '%%' in line:
+            if not in_comment:
+                # Start of a comment block
+                in_comment = True
+                comment_lines = [line]
+                # Check if this line also ends the comment
+                if line.count('%%') >= 2:
+                    # Single-line comment: %% comment %%
+                    in_comment = False
+                    comment_lines = []  # Don't keep this line
+            else:
+                # Already in comment, check for closing %%
+                comment_lines.append(line)
+                if line.count('%%') >= 1:
+                    # Found closing %%
+                    in_comment = False
+                    comment_lines = []  # Don't keep any of these lines
+        elif in_comment:
+            # Middle of multi-line comment
+            comment_lines.append(line)
+        else:
+            # Not in comment, keep the line
+            result.append(line)
+    
+    return '\n'.join(result)
+
+if __name__ == '__main__':
+    content = sys.stdin.read()
+    cleaned = clean_comments(content)
+    sys.stdout.write(cleaned)

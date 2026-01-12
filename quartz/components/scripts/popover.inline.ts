@@ -39,11 +39,22 @@ async function mouseEnterHandler(
     }
   }
 
+  // Original code
+  // const targetUrl = new URL(link.href)
+  // const hash = decodeURIComponent(targetUrl.hash)
+  // targetUrl.hash = ""
+  // targetUrl.search = ""
+  // const popoverId = `popover-${link.pathname}`
+
+  // Modified code
   const targetUrl = new URL(link.href)
   const hash = decodeURIComponent(targetUrl.hash)
   targetUrl.hash = ""
   targetUrl.search = ""
-  const popoverId = `popover-${link.pathname}`
+  // Include hash in popover ID to distinguish between different sections
+  const popoverId = `popover-${link.pathname}${hash || ''}`
+
+
   const prevPopoverElement = document.getElementById(popoverId)
 
   // dont refetch if there's already a popover

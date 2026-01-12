@@ -1,3 +1,197 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+
+// slight move to the left for sidebar
+// Move left sidebar further left
+// #quartz-body {
+//   .sidebar.left {
+//     margin-left: -.5rem; // Adjust this value as needed
+//     padding-left: .5rem; // Compensate for the negative margin to keep content aligned
+//   }
+// }
+
+/* mod: centering images */
+article img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img + em {
+  display: block;
+  text-align: center;
+}
+
+// Explorer folders
+.folder-container div>button span {
+    // font-size: 1.05rem;
+    font-size: 1rem;
+    // font-weight: 400;
+    line-height: 1.5rem;
+}
+// Explorer Vertical spacing
+.explorer-content li {
+    line-height: 1.25rem;
+}
+
+// Page links
+.explorer-content ul li>a {
+    font-weight: 600;
+    font-size: .95rem;
+}
+
+// toc
+// In custom.scss - TOC container sizing fixes
+.toc {
+  // min-width: 320px; // Set minimum width
+  // padding-right: 1rem !important; // Add space between text and scrollbar
+  flex: 0 0 auto !important; // Prevent growing/shrinking
+  height: auto !important;
+  &:has(button.toc-header.collapsed) {
+    flex: 0 0 1.4rem !important; // just how much the space is when you fold it -- no need to change
+  }
+}
+
+// so that the div doesn't fully extend to the bottom of the page
+ul.toc-content.overflow {
+  max-height: 65vh !important; // Adjust this value as needed
+  overflow-y: auto !important;
+}
+
+// same for explorer? 
+.explorer {
+  max-height: 90dvh !important; // just enough for the tags page to show at the bottom
+}
+
+// scrollbar modification
+/* Slightly wider for better browser compatibility */
+.toc-content.overflow,
+.explorer .explorer-content,
+.recent-notes .recent-ul {
+  &::-webkit-scrollbar {
+    width: 3px !important;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--gray) 40%, transparent) !important;
+    border-radius: 1.5px !important;
+  }
+  
+  &::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in srgb, var(--gray) 70%, transparent) !important;
+    width: 4px !important;
+  }
+}
+
+.explorer .explorer-content
+{
+  scrollbar-color: color-mix(in srgb, var(--gray) 40%, transparent) transparent !important; 
+}
+
+// recent notes
+.recent-notes {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden; // Contain the scrolling
+  min-height: 1.4rem; // Match other components
+  flex: 0 1 auto; // Match other components
+
+  & > h6 {
+    margin: 0 0 0.5rem 0; // Consistent top margin with other components
+    padding: 0;
+    flex-shrink: 0; // Don't shrink the title
+    font-size: 1rem;
+  }
+
+  & > ul.recent-ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto; // Make it scrollable
+    overscroll-behavior: contain; // Smooth scrolling
+    flex: 1; // Take remaining space
+
+    & > li {
+      margin: 0.25rem 0;
+      padding: 0.25rem 0;
+
+      .section {
+        & > .desc > h6 {
+          margin: 0;
+          line-height: 1.2;
+          
+          & > a {
+            background-color: transparent;
+            font-size: 0.95rem; // title
+          }
+        }
+
+        & > .meta {
+          margin: 0.05rem 0 0.1rem 0;
+          opacity: 0.6;
+          font-size: .8rem; // date
+          line-height: 1.1;
+        }
+
+        & > .tags {
+          margin: 0.05rem 0;
+          padding: 0;
+          list-style: none;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.15rem;
+          
+          & > li {
+            margin: 0;
+            
+            & > a {
+              font-size: 0.7rem;
+              padding: 0.05rem 0.3rem;
+              line-height: 1.1;
+            }
+          }
+        }
+      }
+    }
+  }
+  // For the "see more" link
+  & > p {
+    margin: 0.5rem 0 0 0;
+    flex-shrink: 0; // Don't shrink this either
+  }
+}
+
+// popover size
+.popover {
+  & > .popover-inner {
+    width: 40rem; }
+}
+
+//// dividers ////
+// hr {
+//   overflow: visible;
+//   padding: 0;
+//   height: 0;
+//   margin: 4em auto;
+//   border: none;
+//   text-align: center;
+//   width: 100%;
+ 
+//   &:after {
+//     content: "* * *";
+//     display: inline-block;
+//     margin: -1em 0 0.5em;
+//     font-size: 1.5em;
+//     padding: 0.5em 1em;
+//     color: var(--gray);
+//   }
+// }
+
+

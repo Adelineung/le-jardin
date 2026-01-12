@@ -22,8 +22,17 @@
 }
 
 :root[reader-mode="on"] {
-  & .sidebar.left,
-  & .sidebar.right {
+  // & .sidebar.left,
+  // & .sidebar.right {
+  //   opacity: 0;
+  //   transition: opacity 0.2s ease;
+
+  //   &:hover {
+  //     opacity: 1;
+  //   }
+  // }
+  
+  & .sidebar.left {
     opacity: 0;
     transition: opacity 0.2s ease;
 

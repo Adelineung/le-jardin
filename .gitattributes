@@ -1,1 +1,7 @@
 * text=auto eol=lf
+
+# Apply comment filter to all markdown files
+*.md filter=cleancomments
+
+# Also apply to files in content/ folder
+content/**/*.md filter=cleancomments

@@ -20,6 +20,9 @@ export interface Options {
   filterFn: (node: FileTrieNode) => boolean
   mapFn: (node: FileTrieNode) => void
   order: OrderEntries[]
+
+  enableTagsLink?: boolean // Add this option
+  tagsLinkText?: string   // Add this option
 }
 
 const defaultOptions: Options = {
@@ -48,6 +51,9 @@ const defaultOptions: Options = {
   },
   filterFn: (node) => node.slugSegment !== "tags",
   order: ["filter", "map", "sort"],
+
+  enableTagsLink: true, // Enable by default
+  tagsLinkText: "Tags", // Default text
 }
 
 export type FolderState = {
@@ -97,6 +103,7 @@ export default ((userOpts?: Partial<Options>) => {
             <line x1="4" x2="20" y1="18" y2="18" />
           </svg>
         </button>
+{/* 
         <button
           type="button"
           class="title-button explorer-toggle desktop-explorer"
@@ -119,9 +126,19 @@ export default ((userOpts?: Partial<Options>) => {
             <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
         </button>
+         */}
         <div id={id} class="explorer-content" aria-expanded={false} role="group">
+          
           <OverflowList class="explorer-ul" />
+
         </div>
+        {opts.enableTagsLink && (
+            <div class="explorer-tags-link">
+              <a href="/tags" class="explorer-link">
+                <span class="explorer-link-text">{opts.tagsLinkText}</span>
+              </a>
+            </div>
+          )}
         <template id="template-file">
           <li>
             <a href="#"></a>

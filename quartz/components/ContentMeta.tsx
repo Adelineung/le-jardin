@@ -25,8 +25,10 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
 
   function ContentMetadata({ cfg, fileData, displayClass }: QuartzComponentProps) {
     const text = fileData.text
+    // Extract the file name from the file path, ensure filePath is defined
+    const fileName = fileData.filePath ? fileData.filePath.split('/').pop() : null
 
-    if (text) {
+    if (text && fileName !== 'index.md') {
       const segments: (string | JSX.Element)[] = []
 
       if (fileData.dates) {
@@ -44,7 +46,7 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
 
       return (
         <p show-comma={options.showComma} class={classNames(displayClass, "content-meta")}>
-          {segments}
+          {segments} 
         </p>
       )
     } else {

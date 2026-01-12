@@ -23,6 +23,10 @@ import Breadcrumbs from "./Breadcrumbs"
 import Comments from "./Comments"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
+import ScrollPreservation from "./ScrollPreservation"
+import CollapseHeaders from "./CollapseHeaders"
+import FileCount from "./FileCount"
+import RandomNote from "./RandomNote"
 
 export {
   ArticleTitle,
@@ -50,4 +54,8 @@ export {
   Comments,
   Flex,
   ConditionalRender,
+  ScrollPreservation,
+  FileCount,
+  RandomNote,
+  CollapseHeaders,
 }

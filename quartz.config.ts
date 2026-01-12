@@ -8,24 +8,36 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Quartz 4",
-    pageTitleSuffix: "",
+    pageTitle: "deeilna",
+    pageTitleSuffix: " - deeilna",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
-    ignorePatterns: ["private", "templates", ".obsidian"],
-    defaultDateType: "modified",
+    baseUrl: "adelineung.github.io/le-jardin",
+    ignorePatterns: ["private", "templates", ".obsidian",
+      // "les rêveries",
+    ],
+    defaultDateType: "created", // or "modified"
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
+        // header: "Schibsted Grotesk",
+        // title: "Onest",
+        title: "Inter",
+        header: "Inter",
+        body: {
+            name: "Inter",
+            weights: [350, 700],
+            includeItalic: true,
+          },
         code: "IBM Plex Mono",
+        // header: "Inter",
+        // body: "Source Sans Pro",
+        // code: "IBM Plex Mono",
       },
       colors: {
         lightMode: {
@@ -34,10 +46,10 @@ const config: QuartzConfig = {
           gray: "#b8b8b8",
           darkgray: "#4e4e4e",
           dark: "#2b2b2b",
-          secondary: "#284b63",
-          tertiary: "#84a59d",
+          secondary: "#4b3518ff",
+          tertiary: "#c6af92ff",
           highlight: "rgba(143, 159, 169, 0.15)",
-          textHighlight: "#fff23688",
+          textHighlight: "#ffbc3688",
         },
         darkMode: {
           light: "#161618",
@@ -48,16 +60,18 @@ const config: QuartzConfig = {
           secondary: "#7b97aa",
           tertiary: "#84a59d",
           highlight: "rgba(143, 159, 169, 0.15)",
-          textHighlight: "#b3aa0288",
+          textHighlight: "#b3870288",
         },
       },
     },
   },
   plugins: {
     transformers: [
+      Plugin.HardLineBreaks(),
       Plugin.FrontMatter(),
       Plugin.CreatedModifiedDate({
         priority: ["frontmatter", "git", "filesystem"],
+        // priority: ["filesystem"],
       }),
       Plugin.SyntaxHighlighting({
         theme: {
@@ -72,8 +86,12 @@ const config: QuartzConfig = {
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),
+      Plugin.ImageToolkit(),
     ],
-    filters: [Plugin.RemoveDrafts()],
+    filters: [Plugin.RemoveDrafts(),
+              Plugin.RemoveTags({ excludedTags: ["unpublished", "private"] }),
+              // Plugin.RemoveTags({ includedTags: ["personal", "unpublished", "private"] , excludedTags: []}),
+    ],
     emitters: [
       Plugin.AliasRedirects(),
       Plugin.ComponentResources(),
@@ -86,7 +104,9 @@ const config: QuartzConfig = {
       }),
       Plugin.Assets(),
       Plugin.Static(),
-      Plugin.Favicon(),
+      // Plugin.Favicon(), 
+      Plugin.EmojiFavicon({ emoji: "🧣" }), // 🦉 🎄 🔮 🌸 🍀
+
       Plugin.NotFoundPage(),
       // Comment out CustomOgImages to speed up build time
       Plugin.CustomOgImages(),

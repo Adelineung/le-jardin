@@ -1,5 +1,5 @@
 .recent-notes {
-  & > h3 {
+  & > h6 {
     margin: 0.5rem 0 0 0;
     font-size: 1rem;
   }
@@ -11,7 +11,7 @@
 
     & > li {
       margin: 1rem 0;
-      .section > .desc > h3 > a {
+      .section > .desc > h6 > a {
         background-color: transparent;
       }
 

@@ -1,0 +1,52 @@
+---
+title: active listening
+draft: false
+tags:
+created: 2025-04-27
+---
+- **Gratitude / Non-judgment (Thank you)**
+    - "Thank you for trusting me enough to share this with me"
+    - "I want you to know that I appreciate you opening up about…"
+    - "I may have a slightly different perspective, but I am interested in understanding yours without judgment"
+- **Validation (It’s OK to feel)**
+    - "You are allowed to feel what you feel, even if it’s hard or messy. It’s OK to not have it all figured out."
+    - "It’s completely understandable to feel XXX. Your feelings are valid, it’s ok to acknowledge and address them."
+    - "It’s completely valid to feel this way given the circumstances you are facing."
+    - "It makes sense that you feel XXX and it’s OK to acknowledge XXX"
+    - "Hey, those can feel very overwhelming, especially when …"
+    - "it's completely understandable you’re feeling sensitive — this is still _fresh_ and you are allowed to protect your heart and your energy."
+- **Reassurance / Safe space (You can share, you can feel safe)**    
+    - "This is absolutely not a burden to me, you can share anything that’s on your mind with me, I am here for you"
+    - "It’s never too much, I want you to feel safe talking to me about anything"
+    - "You do not have to apologise for how you are feeling, ok? It’s OK to feel this way."
+    - "It’s OK to feel … sometimes. It can be very hard to endure, but it does not mean that you’re alone."
+- **Acknowledgment, recognition (Recognise their experience)**
+    - "This … you mention sounds really …"
+    - "I hear you love, and I am so sorry you’re going through that"
+    - "I see you’re doing your best at / trying hard to …"
+- **Empathy + Active listening (I understand + share your own)**
+    - "I understand …"
+    - "I can imagine …"
+    - "It makes me feel sad to know that your are carrying such heavy thoughts."
+    - "It sounds like … This must be … I can imagine that …"
+- **Positive Reinforcement (Highlight the positive)**
+    - "I am very grateful that despite XXX you still XXX"
+- **Perspective shift**
+    - "I know it might not fix anything right away, but I am here to remind you that those feelings do not define you or your life."
+- **Positivity + words of encouragement (I am proud of you, you are capable)**
+    - "You are fighting to … and I am proud of you for that."
+    - "You are doing a fantastic job, you are so capable to overcome these challenges"
+- **Self-care reminder (Give yourself some credit, don’t be so harsh on yourself)**  
+    - "Don’t be so harsh on yourself. Don’t beat yourself up over it. Give yourself some credit for the great job you’re doing in life."
+    - "Take breaks, recharge, maintain well-being, relax…"
+- **Care (You mean a lot to me)**
+    - "I care about you a lot, I wish I could take that weight off your shoulders even just for a little while."
+    - "You matter to me and I’ll remind you of that every time you need to hear."
+- **Support (I am here for you)**
+    - "Whatever you need, I am here for you."
+    - "I am here with you through it, you are not alone."
+    - "You are not alone, I am here to support you and help you, anytime."
+    - "You can ask for help, it does not make you emotionally dependent or weak in any way."
+    - "You mean so much to me, I hope you can lean on people who care about you, me included…"
+- **Open-mindedness (do not assume, ask)**
+    - "I would love to hear your thoughts and experiences about …"
