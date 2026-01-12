@@ -13,4 +13,4 @@ as long as i produce an outcome,
 - 🌱 : growing note
 - ⭐ : featured note
 
-other places: [[le jardin]], [[les reveries]], [[/tags|all tags]]
+other places: [[le jardin/]], [[les reveries/]], [[/tags/|all tags]]

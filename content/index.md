@@ -22,10 +22,10 @@ but isn't that the point of a garden? 🪴
 
 quick tour:
 - ⭐ [[duolingo study|a post i had fun writing]]
-- [[le jardin]]
-- [[les projets]]
-- [[les reveries]]
-- [[/tags|all tags]]
+- [[le jardin/]]
+- [[les projets/]]
+- [[les reveries/]]
+- [[/tags/|all tags]]
 
 *note: i personally find this site looking better with the light mode on, especially pages with images 
 (switch is near the search bar on the top left)* 🌙 

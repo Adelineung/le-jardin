@@ -16,7 +16,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "adelineung.github.io/lejardin/",
+    baseUrl: "adelineung.github.io/lejardin",
     ignorePatterns: ["private", "templates", ".obsidian",
       // "les rêveries",
     ],
