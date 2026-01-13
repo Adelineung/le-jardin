@@ -7,17 +7,17 @@ tags:
 created: 2025-11-01
 ---
 as time passes, 
-i lose proficiency in all languages i speak--*very eery feeling*
+i (seem to) lose proficiency in all languages i speak--*very eery feeling*
 
-i have never been super fluent in french (even tho i am a native speaker, does it make sense?), 
-my english has plateau'd or even worsened recently (even though it's my main used language), 
+i have never been super fluent in **french** (even tho i am a native speaker, does it make sense?), 
+my **english** has plateau'd or even worsened recently (even though it's my main used language), 
 
-i rarely speak khmer (once a week...), 
-my german is almost non-existent (high school days are so very far away), 
+i rarely speak **khmer** (once a week...), 
+my **german** is almost non-existent (high school days are so very far away), 
 
-i haven't practiced my japanese in years (...gomenasai), 
+i haven't practiced my **japanese** in years (...gomenasai), 
 
-but i am learning spanish (*¡sí!*) : D 
+but i am learning **spanish** (*¡sí!*) : D 
 
 --- 
 

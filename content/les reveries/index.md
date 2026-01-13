@@ -2,8 +2,8 @@
 title: les reveries
 created: 2025-10-15
 ---
-une collection de thoughts, musings, notes, ... 
-a more personal folder than [[content/le jardin/index|le jardin]], which is more generic knowledge.
+collection of more "personal" notes, thoughts, ... 
+vs. [[le jardin/]] which is more generic notes and knowledge.
 
 > "*atomic note*" : not necessarily a wip note
 > -- but something that mostly originated from my brain cells 🧠
