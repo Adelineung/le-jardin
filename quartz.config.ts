@@ -104,9 +104,7 @@ const config: QuartzConfig = {
       }),
       Plugin.Assets(),
       Plugin.Static(),
-      // Plugin.Favicon(), 
-      Plugin.EmojiFavicon({ emoji: "🧣" }), // 🦉 🎄 🔮 🌸 🍀
-
+      Plugin.Favicon(), // emoji: 🧣 🦉 🎄 🔮 🌸 🍀
       Plugin.NotFoundPage(),
       // Comment out CustomOgImages to speed up build time
       Plugin.CustomOgImages(),
