@@ -1,12 +1,11 @@
 ---
-title: deduction vs. induction
+title: deduction vs. induction inference
 draft: false
 tags:
   - definition
 created: 2025-11-01
+shortname: deduction vs. induction
 ---
-**deduction vs. induction inference**
-
 - **Deductive** begins from **principles**, which can then be applied to **specific instances**.
   -> more guaranteed cause principles are generally more proven
 - **Inductive** begins from **specific instances**, which can then be **generalized into principles**.

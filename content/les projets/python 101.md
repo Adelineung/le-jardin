@@ -514,6 +514,14 @@ result = [x*3  for x in my_list]
 print(result) # [3, 6]
 ```
 
+- intersection list
+```python
+set(list1) - set(list2) # gives items in list1 not in list2
+set(list2) - set(list1) # gives items in list2 not in list1
+set(list1) ^ set(list2) # gives all items that are in only one list
+set(list1) & set(list2) # gives the intersection of items (in both lists)
+```
+
 ## functions
 - `args` = variable position arguments, default values, tuple
 - `kwargs` = variable names arguments, dict

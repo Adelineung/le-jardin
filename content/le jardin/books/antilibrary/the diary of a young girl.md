@@ -1,5 +1,5 @@
 ---
-title: "anne frank: the diary of a young girl"
+title: the diary of a young girl
 draft: false
 tags:
 created: 2026-01-13 13:38

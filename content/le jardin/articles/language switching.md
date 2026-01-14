@@ -5,6 +5,7 @@ tags:
   - learning
   - language
 created: 2025-11-01
+shortname: language switching
 ---
 source: https://www.scotthyoung.com/blog/2013/11/22/language-switching/
 

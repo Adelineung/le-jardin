@@ -3,6 +3,7 @@ title: creating a digital garden to end my doomscrolling
 draft: false
 tags:
 created: 2025-04-08
+shortname: creating a digital garden
 ---
 source link: https://www.youtube.com/watch?v=0tY7Z53QJo8 | Anna Howard
 

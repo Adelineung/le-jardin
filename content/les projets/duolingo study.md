@@ -5,6 +5,7 @@ tags:
   - learning
   - language
 created: 2025-10-20
+shortname: ⭐ duolingo study
 ---
 
 *last edited: 31-12-2025* 
