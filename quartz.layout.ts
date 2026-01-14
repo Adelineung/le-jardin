@@ -57,6 +57,9 @@ const explorer = Component.Explorer({
             
             node.displayName = `${node.displayName} (${count})`;
           } else {
+            if (node.data?.shortname) {
+              node.displayName = node.data.shortname  // setter for displayNameOverride
+            }
             node.displayName = "‣ " + node.displayName;
           }
 

@@ -89,7 +89,7 @@ const config: QuartzConfig = {
       Plugin.ImageToolkit(),
     ],
     filters: [Plugin.RemoveDrafts(),
-              Plugin.RemoveTags({ excludedTags: ["unpublished", "private"] }),
+              Plugin.RemoveTags({ excludedTags: ["unpublished"] }),
               // Plugin.RemoveTags({ includedTags: ["personal", "unpublished", "private"] , excludedTags: []}),
     ],
     emitters: [

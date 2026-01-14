@@ -19,6 +19,7 @@ export type ContentDetails = {
   richContent?: string
   date?: Date
   description?: string
+  shortname?: string  // alternative file name in explorer
 }
 
 interface Options {
@@ -115,6 +116,7 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
               : undefined,
             date: date,
             description: file.data.description ?? "",
+            shortname: file.data.frontmatter?.shortname,
           })
         }
       }
