@@ -102,7 +102,7 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    // Component.RandomNote(),  // Add it here
+    Component.RandomPageButton(),
     explorer,
   ],
   right: [
@@ -128,7 +128,7 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    // Component.RandomNote(),  // Add it here
+    Component.RandomPageButton(),
     explorer,
   ],
   right: [

@@ -26,7 +26,7 @@ import ConditionalRender from "./ConditionalRender"
 import ScrollPreservation from "./ScrollPreservation"
 import CollapseHeaders from "./CollapseHeaders"
 import FileCount from "./FileCount"
-import RandomNote from "./RandomNote"
+import RandomPageButton from "./RandomPageButton"
 
 export {
   ArticleTitle,
@@ -56,6 +56,6 @@ export {
   ConditionalRender,
   ScrollPreservation,
   FileCount,
-  RandomNote,
+  RandomPageButton,
   CollapseHeaders,
 }
