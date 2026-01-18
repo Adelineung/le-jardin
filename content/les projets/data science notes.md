@@ -7,7 +7,7 @@ tags:
 created: 2025-11-09
 ---
 The Data Science Roadmap, 8 main chapters
--> [[AI Engineering]] for more study related to AI specifically
+-> [[AI engineering notes]] for more study related to AI specifically
 
 1. [[#1. Maths and Statistics|Maths and Statistics]]
 2. [[#2. Coding|Coding]]
@@ -643,9 +643,15 @@ Some data handling terms:
 - **Data Wrangling** (or munging): broadest term to refer to **entire process** of taking raw, messy data and transforming into clean, structured format. 
   -> include cleaning, enriching, transforming, merging data from various sources. 
 - **Data Pre-processing**: subset of wrangling that specifically prepares the data **for ML models**. the focus is on making the data digestible for algorithms. 
+	- **Feature Engineering**: create better inputs for ML models, key part of data pre-processing
 - **Data Processing**: **general term** for any operation on data, it can be synonymous with wrangling, or refer to large-scale data transformation in data engineering (ETL)
-- **Data Modeling**: design how data is **structured and organised** (e.g. schema design for DB), ensuring data is stored and accessed efficiently and meaningfully, so a little bit more about data engineering specifically here 
+- **Data Cleaning**: correct the imperfections in data, which is a critical sub-task within wrangling
+- **Data Mining**: discover hidden patterns in data, this comes after data is prepared, and typically makes use of ML techniques
+- **ETL/ELT**: create data pipelines from sources to storage, can be considered as a part of data engineering or a form of large-scale processing. 
+- **Data Modeling**: design how data is **structured and organised** (e.g. schema design for DB), ensuring data is stored and accessed efficiently and meaningfully -> more DB/data engineering design, often involved early in pipeline 
+- **Data Analysis**: answer questions with data (human-led) => the overarching goal with all of these data related processes
 
+![[_images/data_terminology_diagram.svg]]
 ## 3.1. Data Types
 def: classification of data based on its **structure**, organisation, format
 
@@ -2634,7 +2640,7 @@ notes of stuff you wanna include?
 - [x] clean up the cf. and ref :( 
 - [x] review all quickly 
 - [x] churn? ROI? (aren't they business terms) -> general glossary created 
-- [x] GANs or GenAI, diffusion -> [[AI Engineering]] probably here :) 
+- [x] GANs or GenAI, diffusion -> [[AI engineering notes]] probably here :) 
 
 -> there are still some stuff to review and complete!
 ==❓: to review later -- make sure to check them after==

@@ -4,6 +4,19 @@ import yaml
 import re
 import os
 import sys
+import json
+
+exclude_tags = {'private', 'unpublished', 'internal', 'secret'}
+
+# Try to load from config file
+config_file = '.git/pre-commit-config.json'
+if os.path.exists(config_file):
+    try:
+        with open(config_file, 'r') as f:
+            config = json.load(f)
+            exclude_tags = set(config.get('exclude_tags', exclude_tags))
+    except (json.JSONDecodeError, IOError):
+        pass  # Keep defaults if config file is invalid
 
 def should_exclude(filepath):
     """Check frontmatter for exclusion"""
@@ -26,7 +39,6 @@ def should_exclude(filepath):
         
         # Check tags
         tags = frontmatter.get('tags', [])
-        exclude_tags = {'private', 'unpublished', 'internal', 'secret'}
         
         if isinstance(tags, list):
             if any(str(tag).lower() in exclude_tags for tag in tags):

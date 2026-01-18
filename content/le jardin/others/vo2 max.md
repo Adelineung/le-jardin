@@ -77,7 +77,8 @@ but a good rule of thumb,
 | 60-69 | ≤ 15.9 | 16-22.9 | 23-35.9     | 36-40.9 | 41        |
 
 ![[_images/angry_crying_emoji.jpg]]
-*oct 2025-- i am currently oscillating between 35-39... gasp*
+*oct 2025-- i am currently oscillating between 35-39... gasp* 
+
 
 |                                                                                    |                                                                        |
 | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |

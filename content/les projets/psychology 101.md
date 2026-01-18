@@ -579,6 +579,9 @@ def: believing that past random events influence future ones in independent proc
 ### Generation effect
 ### Golden hammer
 ### Google effect
+def: also known as digital amnesia, it is the tendency to forget information that is readily available through search engines like Google -> over-reliance on the digital world. 
+-> e.g. you don't remember the dates of WWII, all good, "just google it"
+
 ### Group attribution error
 def: 
 ### Halo effect
@@ -626,6 +629,9 @@ def: failing to account for the size of a sample when judging its reliability
 
 ### Irrational escalation
 ### Just-world hypothesis
+def: assume that "people get what they deserve", "everything happens for a reason", "you reap what you sow" -- basically actions will necessarily have morally fair and fitting consequences for the actor 
+-> e.g. you do good, you'll receive good => so work hard and be nice 
+but the inverse also works: do bad and you'll receive bad, and vice versa, if you receive bad, it's because you must have done something bad too 
 ### Lake Wobegone effect
 ### Law of narrative gravity
 def: the pull toward simpler, more coherent and emotionally satisfying stories over complex, ambiguous truths 
