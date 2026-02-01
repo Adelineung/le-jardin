@@ -2209,7 +2209,7 @@ def: collect/extract data from various sources and unify it in consistent format
 def: implementing scalable storage solutions such as *data warehouses* or *lakes* for future processing and analysis -- ensuring data accessibility, security, and governance
 -> data (digital information) can be stored on physical (hard drives) or cloud-based media (cloud platforms)
 
-##### > how's data managed -- what's a "schema"?
+##### > how's data managed ie what's a "schema"?
 - a schema turns raw data into structured information by enforcing a consistent format, i.e. it's like a template or a structure that defines how data is organised 
 	- **schema-on-write**: define the schema before loading the data -> inflexible but data is clean and reliable (warehouse)
 	- **schema-on-read**: apply the schema when reading the data -> flexible but can lead to garbage in, garbage out (lake)
@@ -2218,7 +2218,7 @@ def: implementing scalable storage solutions such as *data warehouses* or *lakes
 	- **snowflake schema**: another way of organising data where the dimension tables are split into smaller sub-dimensions to keep **data more organised and detailed** 
 		- -> structure is normalised (i.e. hierarchical vs. denormalised = flat dimensions)
 
-##### > how's data stored -- in what kind of architecture?
+##### > how's data stored ie in what kind of architecture?
 - **data warehouse**: centralised repo for storing structured, **processed** and filtered data that is optimised for analysis and reporting 
 	- **data**: structured and semi-structured / data is cleaned, transformed and modeled (often into a star schema)
 	- **schema**: schema-on-write
@@ -2410,6 +2410,11 @@ def: big data refers to the extremely large and complex datasets that are too bi
 
 -> **large-scale data processing**
 
+Other core principle: **FAIR** data principle 
+- **F**indability: easy to find data for both humans and machines 
+- **A**ccessibility: know how to access the data (authentication and authorisation)
+- **I**nteroperability: data usually need to be integrated with other data, apps, workflows, etc. 
+- **R**euse: ultimate goal of FAIR is to optimise reuse and replication of data
 ### 7.2.1. Hadoop
 def: *open-source* framework for distributed **storage** and **processing** of large datasets across clusters of computers
 - core includes

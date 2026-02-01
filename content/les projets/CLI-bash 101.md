@@ -130,9 +130,17 @@ http://192.168.1.15:8080/
 
 note: sometimes, it's also worth modifying / removing the "http(s)://" part. 
 
+## python specifics
+- `python -V`: which version 
+- `which python`: what installation is used for what command
+	- `which python3`
+	- `which -a python python3`: show full paths of all exe named python or python3
+
 ## misc
 `sudo pkill coreaudiod` -- gently kill all audio deamon process
 
+- GET https://example.com/api/end-point-name?key=your-api-key
+	- to request 
 
 # Bash script 101
 - create a bash script:

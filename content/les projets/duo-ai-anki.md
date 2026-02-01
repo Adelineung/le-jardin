@@ -4,6 +4,7 @@ draft: false
 tags:
   - spanish
   - AI
+  - 🚧
 created: 2025-11-01
 ---
 *under construction* 🚧

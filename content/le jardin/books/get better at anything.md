@@ -119,7 +119,7 @@ the harder it can get to articulate and teach their skills to others
 > understanding shifts from **explicit**, **rule**-based knowledge 
 > -> to **intuitive**, **recognition**-based expertise
 
-> this can lead to the ["curse of knowledge (or curse of expertise)"](https://en.wikipedia.org/wiki/Curse_of_knowledge):
+> this can lead to the [[psychology 101#Curse of knowledge]] [(or curse of expertise)](https://en.wikipedia.org/wiki/Curse_of_knowledge):
 > **cognitive bias** that occurs when a person who has specialised knowledge assume that others share that same knowledge 
 > -> failure to recognise what beginners need to learn due to solidified understanding.
 

@@ -159,7 +159,7 @@ df['Has_more'] = df['Name'].str.contains('|'.join(lst)) # multiple patterns
 df['First_Letter'] = df['Name'].str[0]
 ```
 - replacing
- ```python
+```python
  # Replace with dictionary or specific values
 df['Category'] = df['Category'].replace({'X': 'New', 'C': 'Other'})
 df['col'] = df['col'].replace([1, 2, 3], 'X')
@@ -184,6 +184,9 @@ grouped.size()                    # Count per city
 grouped['Salary'].mean()          # Average salary per city
 
 grouped.size().unstack()          # transpose dimension
+
+grouped.reset_index()             # if you need
+grouped.columns = grouped.columns.get_level_values(0)  # Keep only the first level
 
 # Multiple aggregations
 df.groupby('City').agg({
@@ -242,6 +245,11 @@ result = pd.concat([df1, df2], keys=["col1", "col2"]) # rename cols
 # Merging (SQL joins on column)
 merged = pd.merge(df1, df2, on='key', how='inner') # inner by default
 
+# Merging to see the difference between df
+merged = pd.merge(df1, df2, how='outer', indicator=True)
+differences = merged[merged['_merge'] != 'both']
+print(differences['_merge'].value_counts())
+
 # Join on index (SQL joins on index)
 result = df1.join(df2, how='inner') # inner by default
 
@@ -296,6 +304,51 @@ other alternatives:
 ## pytorch
 ## tensorflow
 
+
+## sqlite3
+- connect to db
+	- `conn = sqlite3.connect('database_file.db')` = connection object
+- cursor object
+	- `cursor = conn.cursor()`
+- `conn.row_factory = sqlite3.Row`  makes rows behave like dictionaries i.e. can access columns by name
+- key ops
+	- basically `cursor.execute(SQL_COMMAND)`
+	- with `SQL_COMMAND` -> [[SQL 101]]
+		- INSERT, SELECT, ... 
+	- to retrieve data: `.execute(SELECT)` + `cursor.fetchall()`
+```python
+# Create table with name "users"
+cursor.execute('''CREATE TABLE IF NOT EXISTS users 
+                  (id INTEGER PRIMARY KEY,
+					name TEXT,
+					age INTEGER)''')
+
+# Insert data
+cursor.execute("INSERT INTO users (name, age) VALUES (?, ?)", ('Alice', 30))
+cursor.execute("INSERT INTO users (name, age) VALUES (:name, :age)", 
+               {'name': 'Bob', 'age': 25})
+
+# Insert multiple rows
+users_data = [('Charlie', 35), ('David', 28)]
+cursor.executemany("INSERT INTO users (name, age) VALUES (?, ?)", users_data)
+
+# Query data
+cursor.execute("SELECT * FROM users WHERE age > ?", (25,))
+rows = cursor.fetchall()  # Get all results
+# cursor.fetchone()  # Get single row
+# cursor.fetchmany(5)  # Get limited rows
+
+
+conn.commit() # Save changes
+conn.rollback()  # Undo changes
+conn.close() # 
+```
+- to backup data
+```python-
+source = sqlite3.connect('original.db')
+destination = sqlite3.connect('backup.db')
+source.backup(destination)
+```
 ---
 # > python basics
 ## data types
@@ -334,7 +387,7 @@ for i, (key, value) in enumerate(my_dict.items()):
 
 ## files
 - f is the file variable 
-- opening mode: `"r", "w", "a", "ra+", ...`
+- opening mode: `"r", "w", "a", "r+", ...`
 ```python
 f = open("file.txt", "w")
 
@@ -344,6 +397,7 @@ f.writelines(lst) # list of strings
 f.read() # read to the end 
 f.readlines() # list of lines
 f.readline() # next line
+f.read().splitlines()
 
 f.close() # after each use, it's importaaant
 
