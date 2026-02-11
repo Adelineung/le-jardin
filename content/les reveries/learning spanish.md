@@ -100,6 +100,7 @@ i know of the importance of spaced repetition to consolidate memory, which is wh
 resources i collected to get started: 
 - https://www.duolingo.com/
 - https://app.dreaming.com/spanish/browse
+- https://www.linguno.com/
 - https://www.languagetransfer.org/
 - https://www.lingq.com/
 - https://spanishboom.com/spanish-grammar/

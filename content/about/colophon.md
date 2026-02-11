@@ -11,7 +11,7 @@ created: 2025-10-15
 
 all is free, easy to try out.
 
-##### ii. there might be other alternatives, to explore later
+##### ii. other alternatives, to explore later
 - personal domain name 
 	- private repo
 	- netlify, vercel, other hosts

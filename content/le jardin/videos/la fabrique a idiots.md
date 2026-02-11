@@ -118,7 +118,7 @@ conclusion:
 not a unique phenomenon with LLMs and AI only, 
 it was already the case with other technologies such as GPS, calculators, 
 or even the internet as a whole. 
-> => [[psychology 101#Google effect]]: no longer bother with remembering information, as they are available at one's fingertips 
+> => [[psychology 101#Google effect (Digital amnesia)]]: no longer bother with remembering information, as they are available at one's fingertips 
 
 consequence: 
 - fewer brain activities: "just google it" <<< solicit brain to encode and retrieve information (thus create and reinforce brain connections)

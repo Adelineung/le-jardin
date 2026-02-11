@@ -82,6 +82,21 @@ created: 2025-10-15
 |||||
 |esto, eso = ça/ceci/cela||||
 
+# vocabulary flashcards
+tips
+- sentence mining >> vocabulary flashcards 
+	- ie put some context in, use examples instead of isolated words
+- 
+
+
+# general tips 
+- sentence mining >> vocab flashcards
+- dont wait for immersion and speaking 
+- read out loud
+
+
+sources:
+- https://www.youtube.com/watch?v=4lINWkIVqWc
 # verb flashcards 
 source: https://studyspanish.com/verb-flashcards
 ## 1. hay

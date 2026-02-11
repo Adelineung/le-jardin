@@ -9,6 +9,7 @@ source link: https://www.youtube.com/watch?v=jcn1SlQyoTs | Matt D'Avella
 
 keywords: self-dev, motivation, improvement, help, personal responsibility  
 
+> [!NOTE] tldr;
 > ❌ you're responsible for everything
 > ==✔ you're responsible for everything you can realistically control==
 

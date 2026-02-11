@@ -558,6 +558,12 @@ some definitions about databases:
 	- ➖ not fully enforce ACID compliance 
 - **NewSQL** DB: combine scalability of **NoSQL** with **ACID** transactions of RDB, providing both high performance and consistency. 
 
+a note on **ACID**:
+- **Atomicity**: all or nothing transaction commit, if transaction fails -> rollback, partial commit isn't allowed
+- **Consistency**: data remains consistent after a transaction is completed, there are constraint rules that have to be followed for all transactions to not disrupt the consistency of the database, in fact, only valid data is saved
+- **Isolation**: concurrent transactions are isolated from each other, no interference happens 
+- **Durability**: data is persisted after transaction is committed even in a system failure (replication, i.e. backup), transactions are permanently recorded once saved
+
 a bit further:
 - **DB Management System** (DBMS): full software sys that users and apps interact with for **data management**
 	- -> tools and interfaces to create, update, query data
@@ -566,7 +572,7 @@ a bit further:
 - **DB Engine**: a.k.a. storage engine, it's a core component or subsystem within a DBMS responsible specifically for **data handling**, storage and retrieval. 
 	- -> executes **CRUD** (Create, Read, Update, Delete) ops
 	- -> manages low-level tasks: indexing, caching, transaction support 
-	- e.g. SQLLite, InnoDB, MyISAM
+	- e.g. SQLite, InnoDB, MyISAM
 		- -> can have its own tweaks in querying language right? 
 
 | Relational DB | NoSQL DB      |              |           |               |
@@ -591,7 +597,7 @@ def: advanced open-source **RDB Management System** (RDBMS)
 -> standards compliance, extensibility, powerful features like JSON support and robustness 
 -> suitable for complex queries and large-scale apps 
 
-### 2.3.3. SQLLite
+### 2.3.3. SQLite
 def: lightweight, serverless, file-based **DB engine**. 
 -> embeddable in apps, used for mobile, desktop, and testing env
 -> not designed for heavy concurrent loads but very convenient
@@ -2234,6 +2240,7 @@ def: implementing scalable storage solutions such as *data warehouses* or *lakes
 - **data lakehouse**: modern architecture that get the best of both world
 	- low-cost, flexible storage of a data lake
 	- management, performance and ACID transactions of a data warehouse (so BI tools can query it directly)
+		- (**ACID** properties: Atomicity, Consistency, Isolation, Durability)
 
 some examples of Data Cloud Platforms for each structure:
 
@@ -2411,10 +2418,10 @@ def: big data refers to the extremely large and complex datasets that are too bi
 -> **large-scale data processing**
 
 Other core principle: **FAIR** data principle 
-- **F**indability: easy to find data for both humans and machines 
-- **A**ccessibility: know how to access the data (authentication and authorisation)
-- **I**nteroperability: data usually need to be integrated with other data, apps, workflows, etc. 
-- **R**euse: ultimate goal of FAIR is to optimise reuse and replication of data
+- **F**indability: easy to find data for both humans and machines -> searchable, documented
+- **A**ccessibility: know how to access the data (authentication and authorisation) -> clear permissions
+- **I**nteroperability: data usually need to be integrated with other data, apps, workflows, etc. -> standard formats
+- **R**euse: ultimate goal of FAIR is to optimise reuse and replication of data -> clear context and quality
 ### 7.2.1. Hadoop
 def: *open-source* framework for distributed **storage** and **processing** of large datasets across clusters of computers
 - core includes

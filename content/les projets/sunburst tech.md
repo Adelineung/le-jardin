@@ -91,7 +91,7 @@ Systems for storing, managing, and retrieving structured or unstructured data.
 #### ➤ NoSQL
 - **MongoDB**: A popular NoSQL document-oriented database for scalable applications.
 #### ➤ Relational Database
-- **SQLLite**: A lightweight, file-based relational database engine often used in embedded applications.
+- **SQLite**: A lightweight, file-based relational database engine often used in embedded applications.
 - **Oracle**: A powerful, enterprise-grade relational database management system.
 - **MySQL**: A widely-used open-source relational database management system.
 - **PostGreSQL**: An advanced open-source relational database known for extensibility and standards compliance.
