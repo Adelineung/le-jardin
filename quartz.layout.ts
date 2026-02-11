@@ -73,7 +73,9 @@ const explorer = Component.Explorer({
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [Component.ScrollPreservation()],
+  afterBody: [
+    Component.ScrollPreservation()
+  ],
   footer: Component.Footer()
 }
 
