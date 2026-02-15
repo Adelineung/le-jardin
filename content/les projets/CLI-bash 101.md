@@ -76,7 +76,6 @@ ls /dev/tty.*
 ls /dev/cu.*
 ```
 - `sudo [cmd]` : run cmd as a **superuser** (SUper user DO)
-- `top` : display live info about current running processes
 - `du -h` : memory used by files
 - brew: **package manager** to install other tools on macOS
     - `brew install [sth]` : install a package
@@ -99,6 +98,17 @@ sudo apt-get update
 sudo apt-get upgrade
 ```
 
+
+## process specifics
+- `top` : display live info about current running processes
+- `pkill -f "python.*quiz"` : kill all processes with keywords matching full command line 
+- `ps aux` : list all processes 
+- `jobs` : list background processes
+- `python script1.py; python script1.py` : sequential run of processes, one after the other, can be blocking if the first one doesn't complete 
+- `python script1.py & python script1.py` : first process run in the background, second one still controlled in terminal, but outputs intermingle
+- `&&` : run second if first succeeds
+- `||` : run second if first fails
+- `python script1.py & python script1.py &` : both processes are run in the background, subshell grouped 
 ## network specifics
 
 - `ipconfig getifaddr en0`

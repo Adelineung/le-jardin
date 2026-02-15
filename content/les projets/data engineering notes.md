@@ -1,13 +1,14 @@
 ---
-title: data engineering notes
+title: 👩‍💻 data engineering
 draft: false
 tags:
 created: 2026-02-03 13:35
-shortname: data engineering
+shortname:
 ---
 - [[data science notes]]
 - [[AI engineering notes]]
 - https://roadmap.sh/data-engineer
+
 ---
 # cheatsheet for data systems
 - **database** = structure collection of data

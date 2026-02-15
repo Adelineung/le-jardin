@@ -493,9 +493,9 @@ def: versatile, high-level programming language renowned for its simplicity and 
 ### 2.1.1. numpy
 def: fundamental package for **scientific computing** in python, providing support for large, **multi-dim arrays** and **matrices** along with **mathematical functions**
 
-- ndarray: **N-dim array** object providing efficient and operations for numerical data (i.e. matrix❓)
+- ndarray: **N-dim array** object providing efficient and operations for numerical data (i.e. matrix)
 - vectorise: **element-wise array operations** that avoid explicit loops, significantly improving computational performance through optimised C implementations 
-- broadcasting: arithmetic operations with arrays of different shapes ❓❓
+- broadcasting: arithmetic operations with arrays of different shapes
 
 ### 2.1.2. pandas
 
@@ -516,9 +516,8 @@ Data Processing: methods to prepare data for analysis
 #### i. scikit-learn
 def: comprehensive **ML library** featuring simple and efficient tools for **data mining** and **analysis**, built on numpy, scipy and matplotlib. 
 
-note: ah bah si en fait, c'est bien cette library que j'utilise pour toute la partie ML xd 
-
-❓ this deserves its own note
+> [!info] More
+> [[python 101#scikit-learn]]
 
 - pipeline
 - gridsearchCV
@@ -534,7 +533,8 @@ def:
 #### i. matplotlib
 def: fundamental plotting lib for python, comprehensive and highly customisable **2D plotting library**
 
-❓ deserves its own note too 
+> [!info] More
+> [[python 101#matplotlib / seaborn]]
 
 - figures and axes
 - charts and plots
@@ -2620,43 +2620,7 @@ def: encompassing cross-cutting issues like aligning technical work with busines
 
 
 # Appendix
-notes of stuff you wanna include? 
-- 🟣 time series stuff -> WIP! 
-- 🟣 Maths
-- 🟣 coding 
-- AWS SageMaker 
-
-
-- next:
-	- [x] git => SE section in Coding 
-	- [x] data visu => in EDA, Data subsection => ok but just the placeholder honestly, will have to go slightly deeper
-	- [x] bias and variance -> Bias-variance tradeoff
-	- [x] data processing, preprocessing, wrangling -> Data101
-	- [x] finish 4.2.3. Fundamental Eval Concepts
-	- [x] add more to data science challenges
-	- [x] A/B testing => DS Challenges
-	- [x] ETL -> Data engineering section
-	- [x] type of data... and dbase? => Data engineering section
-	- [x] big rabbit hole into business apps
-- [x] done:
-	- [x] Markov decision process
-	- [x] k-nearest neighbours vs...... the other one? 
-	- [x] regressions? 
-	- [x] AI for sure 
-	- [x] sql coding
-	- [x] variance vs. std
-	- [x] CI/CD
-	- [x] Docker
-
-- [x] check all the links 
-- [x] clean up the cf. and ref :( 
-- [x] review all quickly 
-- [x] churn? ROI? (aren't they business terms) -> general glossary created 
-- [x] GANs or GenAI, diffusion -> [[AI engineering notes]] probably here :) 
-
--> there are still some stuff to review and complete!
-==❓: to review later -- make sure to check them after==
-
+ 
 sources:
 - https://roadmap.sh/ai-data-scientist
 - https://www.datacamp.com/tutorial/anova-test

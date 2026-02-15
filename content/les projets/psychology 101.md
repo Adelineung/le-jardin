@@ -1,10 +1,9 @@
 ---
-title: 🌱 psychology 101
+title: ⭐ psychology 101
 draft: false
 tags:
   - psychology
   - _101
-  - 🚧
 created: 2025-11-01
 ---
 # definitions
@@ -1168,8 +1167,7 @@ Willpower Parado
 - https://sketchplanations.com/categories/cognitive-bias
 
 see also:
-- [[thinking system]]
-- [[mental models]]
+- [[thinking systems]]
 
 would be nice to do:
 - analyse the different recurrent terms for the list of cognitive biases (fallacy, bias, etc. )

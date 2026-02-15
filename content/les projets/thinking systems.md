@@ -1,15 +1,16 @@
 ---
-title: thinking system
+title: 🌱 thinking systems
 draft: false
 tags:
   - psychology
+  - 🚧
 created: 2025-12-31
 shortname:
 ---
 # definitions
 **Mental models**
 def: fundamental concepts and representations about how the world works
--> what to think = principles, concepts
+-> what to think = principles, concepts 
 
 **Thinking tools**
 def: practical methods that can be applied to solve problems
