@@ -6,11 +6,85 @@ created: 2026-02-03 13:35
 shortname:
 ---
 - [[data science notes]]
+	- [[data science notes#7. Data Engineering|Data Engineering section]]
 - [[AI engineering notes]]
 - https://roadmap.sh/data-engineer
+# Data Engineering 101
+![[_images/data_pipeline_example.svg]]*Modern data pipeline*
 
----
+def: data engineer is responsible to build and manage the entire data pipeline, ie from the point of data creation to the point it's ready for analysis (ETL)
+1. **Source** systems: this is where the data is created, databases! 
+	- **Relational databases** = the quintessential source system!
+	- but doesn't have to be relational, can be NoSQL databases, Data Lakes, APIs, Event streams, ... 
+	- Structure (tables, keys), data types (int, text, ...), relationships in the source database, ACID principles... 
+	- E: extract data from the source = relational DB 
+2. **Processing** layer: 'T' in ETL/ELT, for **transform**
+	- This involves scripts (python, sql or spark) to move data from the source to the warehouse, which can encompass clean, transform, ready for analysis. 
+	- T: transform (clean, join, agg)
+3. **Destination** systems: this is where the data lands for analysis -> **Data Warehouse**! 
+	- e.g. snowflake, bigquery
+	- This involves designing the structure (**dimensional modeling**: star, snowflake schemas), loading the data onto it, optimising performance so that business users can query it quickly, ... 
+	- L: load data into warehouse
+
+A distinction between 
+- **OPERATIONAL** Data systems/sources (or what commonly called "**databases**"): this is where apps can read-write data in real-time, they are the source of the data!
+	- Relational DBs: MySQL, Postgre for structured data
+	- NoSQL DBs: MongoDB, Cassandra for semi-structured data (JSON, XML, YAML)
+	- APIs/SaaS: Salesforce, Stripe for mostly semi-structured data 
+	- Files / Data Lake: the rest with JSON logs, CSV, Images, Videos, etc. for semi-structured and unstructured data
+- **ANALYTICAL** Data systems = basically Data **Warehouses**, which are systems where data is loaded into for reporting, insights and analysis!
+	- Snowflake, Google BigQuery, Amazon Redshift, MS Azure, etc.
+
+Some more definitions
+- **Data architecture**: overall design/framework for how a company manages its data, including data collection, storage, processing, access.
+- The Storage Layers 
+	- **Database**: (storage layer) organised collection of data, typically used for real-time operations (OLTP: online tx processing), optimised for read-write quickly (eg SQL, NoSQL)
+	- **Data Warehouse**: (storage layer) central repository that stores structure data from multiple sources, optimised for analysis and reporting (OLAP: online analytical processing), contains historical data, not just live tx
+	- **Data Lake**: (storage layer) vast storage repository that holds massive amounts of raw data in its native format, can handle (semi)-(un)structured data (ie all)
+	- **Data Lakehouse**: (storage layer) modern hybrid system that combines flexibility and low cost of data lake + management and querying features of data warehouse
+- The Plumbing (moving)
+	- **Data pipeline**: automated route that data travels from one system to another, it's literally the plumbing that moves data from point A to point B 
+	- **ETL**: extract, transform, load which is a specific data pipeline, where data is extracted from source (like a db), transformed in a separate processing area, then loaded into its destination (like a dw)
+	- **ELT**: newer type of pipeline made possible with **modern dw**, where data can be extracted from source and loaded raw into the dw, and the transformation is done **inside the dw directly**
+- The Engines (processing)
+	- **Data workflow**: broad term for a sequence of tasks that process data, including dependencies, orchestration, notification, etc. 
+	- **Data integration**: combine data from different sources into a unified view
+- The Organisation (structure)
+	- **Data modeling**: process before building a db or dw, to define how data should be structured and connected, which involves deciding on tables, keys, dimensional modeling (schema: star, snowflake), relationships, etc. 
+	- **Data governance**: rules and policies that ensure that data is secure, private, accurate and used properly 
+
+##### Data architecture 
+3 types of data architecture:
+- Centralised: 1 place -> easy, secure, consistent but can be slow and not-flexible
+- Decentralised: multiple places, close to users -> speed, scalable but lack of consistency and security
+- Hybrid: both, with updates and sync between them -> balance performance vs. speed vs. consistency but more complex for sure
+
+3 ways these architectures can be built and deployed: 
+- Cloud: scalable, low cost and fast
+- On-premise (local, server): data security but not super scalable, and rather expensive 
+- Hybrid
+##### Data modeling 
+###### facts vs. dimensions
+source: https://www.youtube.com/watch?v=bNuWBZIItko
+
+star schema:
+- at the center: fact tables -> the action
+- surrounding: dimension tables -> the context around the action
+
+> usually used for business action related data
+> e.g. transactions, orders, sales
+> - fact table = the transaction information (mostly keys to dimension + numerical values (metrics))
+> - dimension tables = the context around the transaction (more verbose, attributes, description)
+> 	- product information (price, type, colour, detail, size)
+> 	- customer information (identity, contact, location, type)
+> 	- date information
+
+benefits to have this right:
+- organisation + structure + order (in data team + others stakeholders)
+- control of the logic
+- data more scalable (with conventions and intentionality)
 # cheatsheet for data systems
+### i. databases
 - **database** = structure collection of data
 - **query language = database language** = language used to com w databases
 - **database management system (DBMS)** = software that manages databases
@@ -46,6 +120,7 @@ shortname:
 | **neo4j**            | DataBase Management System (**DBMS**)  | non-relational<br><br>= graph-based   |             |                                               |                                                                                           |
 | **redis**            | DataBase Management System (**DBMS**)  | non-relational<br><br>= key-value     |             |                                               |                                                                                           |
 
+### ii. data architectures (cloud)
 - **database** = structure collection of data for apps to read/write transactions (customer orders, user profiles, etc.)
 
 vs.
@@ -73,6 +148,7 @@ vs.
 | **apache iceberg**          | storage layer (table format) for data lakes     | snowflake, AWS, google | Delta competitor                                                                                                                                         |
 | **apache hudi**             | storage layer (table format) for data lakes     | onehouse               | Delta competitor                                                                                                                                         |
 
+### misc) apache
 - **apache** = free, not owned by anyone, open-source and functional
 
 |                      | **nature**                                  | **related to, competitors**               | **comments**                                                            |
@@ -85,8 +161,258 @@ vs.
 | **apache iceberg**   | storage layer (table format) for data lakes | Databricks delta lake                     | storage layer for data lakes                                            |
 | **apache hudi**      | storage layer (table format) for data lakes | Databricks delta lake                     | storage layer for data lakes                                            |
 
-# practical guide from [Kahan](https://www.youtube.com/@KahanDataSolutions)
+# E2E Azure DE project
+source: https://www.youtube.com/watch?v=ygJ11fzq_ik
+![[_images/azure_data_pipeline_example.svg]]*Azure data pipeline (example)*
+- **SSMS**: on-prem sql databate
+- Azure **Data Factory**
+	- data pipeline ETL (ingestion, transformation, load) with Lookup -> for each -> notebooks
+	- \+ Azure **Databricks** = transformation (bronze - silver - gold) with notebooks
+- Azure **Synapse Analytics**
+	- connect to gold to get the data ready for reporting, with view creation pipeline
+- **PowerBI** 
+	- connect to Azure Synapse Analytics to build reports
+### Overview
+00:00:00 - Introduction  
+00:01:18 - Setting Up the Azure Environment  
+00:05:45 - SQL Database Configuration  
+00:10:30 - Overview of Azure Data Lake Storage  
 
+This project addresses a critical business need by building a comprehensive data pipeline on Azure. The goal is to extract customer and sales data from an on-premises SQL database, transform it in the cloud, and generate actionable insights through a Power BI dashboard. The dashboard will highlight key performance indicators (KPIs) related to gender distribution and product category sales, allowing stakeholders to filter and analyze data by date, product category, and gender.
+
+Tech Stack:
+- On-Prem SQL DB,
+- Azure Data Factory (EL tool)
+- Azure Data Lake Gen 2 (Lake)
+- Azure Databricks (Data wh)
+- Azure Synapse Analytics (Data wh)
+- MS Power BI (reporting), 
+- (security + governance) Entra ID (Active Directory), Key Vault
+
+---
+"**Business Request**
+In this project, your company has recognized a gap in understanding its
+- **customer demographics**—specifically, 
+	- the **gender distribution** within the customer base and how it might influence **product purchases**.
+
+With a significant amount of customer data stored in an **on-premises SQL database**, key stakeholders have requested a **comprehensive KPI dashboard**. This dashboard should provide insights into sales by **gender** and **product category**, showing total products sold, total sales revenue, and a clear gender split among customers. 
+Additionally, they need the ability to filter this data by product category and gender, with a user-friendly interface for date-based queries.
+
+**Our Solution Overview**
+To address this request, we'll build a robust data pipeline that
+- ==extracts== the on-premises data,
+- ==loads== it into Azure,
+- and performs the necessary ==transformations== to make the data more query-friendly.
+- The transformed data will then feed into a custom-built ==report== that meets all the specified requirements.
+- This pipeline will be ==scheduled== to run automatically every day, ensuring that stakeholders always have access to up-to-date and accurate data."
+
+---
+Download 2-3 things
+- The database file
+- [SQL Server 2025 Express](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) (sql engine, to run the db)
+- SQL Server Management Studio (SSMS, UI to interact with db using SQL)
+
+Open SSMS
+ - New database -> that db you downloaded 
+ - On the left sidebar = db, tables 
+### SSMS
+00:15:23 - Configuring Azure Data Factory
+00:25:11 - Copying Data from SQL to Data Lake  
+00:38:05 - Debugging Initial Pipeline Issues  
+
+- basically setting up some stuff on microsoft portal 
+	- Create Resource group 
+		- Create Data **Factory**
+		- Create **Storage account** 
+		- Create Azure **Databricks** workspace
+		- Create **Synapse workspace**
+			- Create containers: bronze, silver, gold
+		- Create a **key vault**
+
+Link Data Factory to the On-prem SQL db
+- Create user login in SSMS (with username and password)
+- Search for Key vault on Azure portal
+	- Select the key vault you created earlier
+	- Access control (IAM)
+		- Add role assignment
+		- Admin -> Key Vault Administrator 
+	- Objects -> Secrets
+		- Set up your username and password
+- Open Azure Data Factory 
+	- New pipeline -> copy_data
+		- Activity -> Copy data
+			- source dataset: SQL server
+				- Linked service
+					- Integration runtime setup
+						- Network environment -> Self-hosted
+					- Server and Database names 
+						- -> retrieve from SSMS
+					- Link Key Vault 
+						- Create a new role assignment "Key Vault secrets user"
+			- sink: (destination) 
+				- Create new dataset
+				- Azure Data Lake Storage Gen 2
+					- Format: Parquet 
+				- Create Linked service
+				- Set file path = bronze 
+	- Execute! 
+	- When it's done, you can check on the portal that your bronze container now has this new db 
+
+### Azure Data Factory
+00:45:13 - ForEach Activity in Azure Data Factory  
+00:55:30 - Testing the SQL-to-Bronze Pipeline  
+01:05:30 - Recap of SQL-to-Bronze Process  
+01:08:41 - Debugging the Pipeline  
+01:10:04 - Monitoring Pipeline Runs  
+01:10:28 - Verifying Data in Bronze Layer  
+01:11:14 - Completion of the Bronze Data Layer  
+
+Do the same copy, but for all tables 
+- New pipeline -> copy_all_tables
+	- Activity: Lookup
+		- Write query to retrieve name of each table
+		- -> upon success
+	- Activity: ForEach
+		- Activity: Copy data
+			- Query: concat the schema and table name to identify the table
+			- Sink: bronze
+				- Parameters: 
+					- schemaname: @item().SchemaName
+					- tablename: @item().TableName
+				- File path: modify with dynamic names to have more structure
+			- Polish parameters to match input/output of each activity 
+
+Debug if necessary, but basically the ==Data Ingestion pipeline / process is set up== with this,
+the ==bronze== container receives data!
+
+### Databricks
+01:11:53 - Starting Databricks Configuration  
+01:14:43 - Creating a Databricks Cluster  
+01:17:29 - Mounting Data Lake Storage in Databricks  
+01:23:00 - Transformation in Databricks (Bronze to Silver)  
+01:33:06 - Automating Data Transformations  
+01:37:03 - Integrating Databricks with Data Factory  
+01:41:33 - Pipeline Testing and Monitoring  
+
+Now that the data ingestion part is done, 
+this part with Databricks is for transforming data 
+- from bronze
+- to silver 
+- to gold
+
+Open Databricks service on your Azure portal
+- Workspace on the left sidebar: notebooks
+- Compute: infrastructure to run the notebooks
+
+- Create a New compute
+- Create a New notebook, name: **storagemount**
+	- Write some code
+		- configure the mounting process
+		- to silver 
+		- to gold 
+		- connect to the compute cluster 
+	- this basically connects the DB to your workspace 
+- Create a New notebook, name: **bronze to silver**
+	- column transformation for clean date format -> modify and save new df
+	- loop for all tables
+	- language: Python, but it's using the PySpark library 
+		- so it looks like pandas, but apparently for spark? 
+- Create a New notebook, name: **silver to gold**
+	- column name transformation 
+		- from PascalCase or camelCase to snake_case 
+		- for all tables
+
+Now how to get these notebooks to run automatically
+- Open Data Factory
+	- Go back to your copy_all_tables pipeline
+	- Create a New activity after that last For Each one
+		- upon Success
+		- Activity: Notebook (databricks)
+			- name: bronze to silver
+			- set up the parameters to connect everything 
+				- need databricks token 
+		- Activity: Notebook (databricks)
+			- name: silver to gold
+	- Publish changes
+
+Now this took data from ==bronze -> silver -> gold==
+### Synapse Analytics
+01:45:25 - Loading Data into Synapse Analytics  
+01:50:07 - Creating Views in Synapse  
+01:54:40 - Integrating Synapse Views into Data Factory Pipelines  
+
+Alright now let's load these 
+
+Open Synapse Workspace on Azure portal
+- Open Azure Synapse Analytics (= Data wh)
+	- *here you can create new db, new scripts, flow, notebooks, pipelines, ... -> seems like a full orchestration platform?* 
+	- Let's start by Create SQL database in the workspace
+		- **serverless** vs. dedicated 
+		- name: gold_db
+		- it's already linked to the ADLS
+	- Now for that SQL db gold
+		- can create some views 
+	- Can also create the views automatically with pipelines? 
+	- Develop
+		- T-SQL script "createSQLserverlessview_gold"
+		- Link some stuff
+	- Integrate
+		- New Pipeline
+			- Get Metadata
+				- -> get table name
+			- For each
+				-  Stored procedure
+					- connect to that script to create the view 
+	- Now when you check in the workspace, sql database, views
+		- you'll see a list of views for all table names, it worked
+
+This pipeline apparently doesn't have to be run that often, only when the schema of the data changes (which is not often)
+
+And voilà, basically the ==whole ETL pipeline== is done
+-> the ==data for reporting== is ready
+
+### Power BI
+01:57:57 - Power BI Dashboard Setup  
+02:03:11 - Building Relationships in Power BI  
+02:06:48 - Dashboard Filters and Slicers  
+02:10:01 - Publishing and Sharing Power BI Dashboards  
+
+Open PowerBI
+- Blank report
+	- Get data
+		- Azure Synapse Analytics SQL 
+			- server: serverless SQL endpoint
+			-  load
+	- it's a bit like excel honestly + more data oriented 
+		- table view
+		- data model view (relationships)
+			- this needs to be reviewed and validated before moving on
+	- visualisations on the right side
+		- bar, column, stacked, pie, scatter, etc.
+	- Time to go back to business reqs to display the insights 
+
+Some basic reporting introduction... 
+
+### Automation and Active Directory
+02:13:03 - Automating the Entire Pipeline  
+02:17:11 - Active Directory (Entra ID) Integration  
+02:21:33 - Triggering and Monitoring Automated Pipelines  
+02:29:43 - Final Dashboard Refresh and Validation  
+Last part, how to automate the entire pipeline so that it updates everyday (ie the source sql database content is actually included in the central and end systems)
+
+To automate pipeline, 
+- Open Data Factory Studio
+	- this is where you have the ETL pipeline :) 
+	- Add triggers
+		- schedule: everyday
+	- Try to add a new row to your table in sql database
+
+Some security and access things... 
+
+And by the end of this, the pipeline runs everyday to update the data from ==source -> data wh -> insights automatically==
+
+
+# practical guide from [Kahan](https://www.youtube.com/@KahanDataSolutions)
 modern data (engineering)
 - overwhelming because of constant flood of information -> indecision, insecurity, mess
 
@@ -331,40 +657,6 @@ challenges:
 - centralised governance vs. agility 
 - inadequate addressing of data integration challenges 
 
-# Misc
-
-### Data modeling 
-#### facts vs. dimensions
-source: https://www.youtube.com/watch?v=bNuWBZIItko
-
-star schema:
-- at the center: fact tables -> the action
-- surrounding: dimension tables -> the context around the action
-
-> usually used for business action related data
-> e.g. transactions, orders, sales
-> - fact table = the transaction information (mostly keys to dimension + numerical values (metrics))
-> - dimension tables = the context around the transaction (more verbose, attributes, description)
-> 	- product information (price, type, colour, detail, size)
-> 	- customer information (identity, contact, location, type)
-> 	- date information
-
-benefits to have this right:
-- organisation + structure + order (in data team + others stakeholders)
-- control of the logic
-- data more scalable (with conventions and intentionality)
-
-
-
-
-
-
-
-
-
-
-
-
 # 
 ```
 
@@ -375,6 +667,7 @@ benefits to have this right:
 
 
 
+ 
 
 
 
@@ -395,6 +688,5 @@ benefits to have this right:
 
 
 
-
-placeholder
+-
 ```

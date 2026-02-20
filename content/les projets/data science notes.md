@@ -353,6 +353,11 @@ def: probability of obtaining test results at least as extreme as the results ac
 -> i.e. helps decide if the observed patterns in a data are likely due to random chance or reflect a real underlying phenomenon 
 -> i.e. how surprising your data would be if the null hypothesis was true
 
+convention value is set to 5% = α = significance level
+- If p ≤ α : reject the null hypothesis, **conclude alternative hypothesis**.
+- if p > α : fail to reject the null hypothesis, **conclude null hypothesis**.
+
+in other words:
 - **p-value < 0.05 (5%)** 
 	- -> "purely by chance" <<<
 	- => observed data is unlikely under the null hypothesis 
@@ -363,6 +368,12 @@ def: probability of obtaining test results at least as extreme as the results ac
 	- => there is insufficient evidence to reject it 
 	- -> well **nothing is going on then**
 
+| Truth (⬇)<br>Decision (➡) | Accept H0                                         | Reject H0                                           |
+| ------------------------- | ------------------------------------------------- | --------------------------------------------------- |
+| H0 → True                 | Correct decision based on the given p-value (1−α) | Type I error (α)                                    |
+| H0 → False                | Type II error (β)                                 | Incorrect decision based on the given p-value (1−β) |
+- **Type I error**: Incorrect rejection of the null hypothesis. It is denoted by α (significance level). (concluded something is present, while no, FP -> failed detection, False Alarm)
+- **Type II error**: Incorrect acceptance of the null hypothesis. It is denoted by β ((stats) power level) (concluded nothing is present, while yes, FN -> failed to detect, Miss out)
 #### iii. Confidence Intervals
 def: range of values that is used to estimate an unknown population parameter (e.g. mean) with a certain **level of confidence**
 -> instead of giving just one number, it's a range where the true value is likely to be 
@@ -1016,6 +1027,63 @@ cf. [[#7.1.4. Data Serving]] where BI is discussed for more hands-on, interpreta
 
 ❓ can go further
 
+## 3.7. Data-Business
+### 3.7.1. AB Testing
+cf. [[AB Testing]]
+### 3.7.2. KPIs
+def: Key Performance Indicator (KPI) is a measurable value that tracks whether a company is hitting its business goals -> a success metric
+
+a note on difference between metric and KPI:
+- metric: any data point that can be tracked, rather neutral -> "what's happening?"
+- KPI: metric that is tied directly to a business goal, thus strategic-related -> "are we succeeding?"
+
+Some examples:
+- Funnels
+	- e.g. for a purchase funnel, e-commerce context 
+		- **Awareness**: number of website visitors 
+		- **Interest**: number of product page views
+		- **Consideration**: number of users who added an item to cart 
+		- **Conversion**: number of users who actually bought the item -> **Revenue**
+		- **Retention**: number of users who bought a second time -> **Churn Rate**
+
+How do choose good KPIs? 
+-> Follow the "**SMART**" framework
+- **Specific**: clear and focused (eg not 'increase sales' but 'increase sales of white shoes in paris')
+- **Measurable**: can be quantified with a number
+- **Achievable**: actually possible 
+- **Relevant**: it matters to the business right now
+- **Time-bound**: it has a deadline (eg by the end of Q4)
+
+The types of KPIs: 
+
+| Category          | Example KPI                     | What it measures                                             |
+| ----------------- | ------------------------------- | ------------------------------------------------------------ |
+| **Growth**        | Customer Acquisition Cost (CAC) | How much money you spend to get one new customer.            |
+| **Engagement**    | Daily Active Users (DAU)        | How many people use the app every day.                       |
+| **Monetization**  | Average Revenue Per User (ARPU) | How much money each user brings in.                          |
+| **Performance**   | Latency (ms)                    | How fast your model returns a prediction.                    |
+| **Quality**       | Churn Rate                      | What % of customers stopped using the service (or came back) |
+| **Model Success** | Lift / Gain                     | How much better is the model than random guessing?           |
+Some steps involving KPIs:
+- **Define KPIs**: work with the business to decide which ones + how to calculate them (eg clarify what 'churn' means, is it 30 days or 60 days with no login?)
+- **Instrumentation**: make sure the code tracks the events properly (eg is the 'purchase' event firing exactly once?)
+- **Modeling**: build a ML model to predict the KPI (eg which customers are more likely to churn next month?)
+- [[AB Testing|A/B Testing]]: run experiment to see if a new feature actually improves the KPI (eg did the new recommendation system increase revenue?)
+
+### 3.7.3. Business Intelligence
+def: Business Intelligence (BI) is the process of turning raw data into charts, reports and dashboards that help business people make decisions
+-> similar to data analysts 
+
+|               | Business Intelligence (BI)                   | Data Science                                      |
+| ------------- | -------------------------------------------- | ------------------------------------------------- |
+| **Focus**     | What happened? Why did it happen?            | What will happen? How can we make it happen?      |
+| **Timeframe** | Past and Present.                            | Future.                                           |
+| **Output**    | Dashboards, Reports, Pie Charts.             | Predictions, Recommendations, Models.             |
+| **Question**  | "How many customers did we have last month?" | "Which customers are likely to leave next month?" |
+| **Tool**      | Tableau, Power BI, Looker.                   | Python, R, Jupyter Notebooks.                     |
+|               | SQL, Excel                                   | scikit-learn, tensorflow, ...                     |
+|               | Data Warehouse (Snowflake, BigQuery)         | Amazon SageMaker, Spark, ML tools, ...            |
+
 # 4. Machine Learning 
 ## 4.0. Intro
 def: **ML is a subfield of AI** focused on developing algo that enable computers to **learn patterns from data**, and **make predictions or decisions** without being explicitly programmed for every task. -> **no hard-coded rules**
@@ -1598,7 +1666,7 @@ def: the performance metrics depend on the problem type (classification, regress
 - False Positive (FP): wrongly positive predicted (actually a N (0))
 	- Type I error: detect an effect that is not present
 - False Negative (FN): wrongly negative predicted (actually a P (1))
-	- Type II error: fail to detail an effect, that is present 
+	- Type II error: fail to detect an effect, that is present 
 ##### >> Accuracy 
 def: proportion of correct predictions (TP and TN) out of all predictions 
 ➖ not good for imbalanced datasets
@@ -2125,25 +2193,46 @@ tools:
 - Could-native monitoring services
 
 ## 6.2. Cloud Computing
-def: cloud refers to delivering computing resources (servers, storage, DB, ML tools) **over the internet** vs. local machines (so basically... **data centers**)
+def: cloud refers to delivering computing resources (servers, storage, DB, ML tools) **over the internet** vs. local machines (so basically... **data centres**)
 -> flexible and on-demand access
 -> scalable infrastructure and service 
 -> storage, data processing (big data), MLOps
--> **cost efficient**: pay-as-you-go models (depends on usage) i.e. no large upfront cost 
 
-at the core, foundation of **cloud computing**:
-- **distributed computing**: model where multiple independent computers work together on a shared task through network communication, each handling a part of the workload
-	- => cloud systems are essentially large-scale distributed systems.
+The key concepts:
+- **Scalability**: system can handle growth (workload, capacity) by adding more resources -> scale up resources long-term
+- **Elasticity**: system automatically adapt resources depending on traffic (high or low) -> scale up or down resources short-term
+- **Pay-as-you-go**: no upfront cost, only based on your own usage -> cost-efficient
+- **High availability**: backups in multiple data centres, you don't rely on 1 infrastructure 
+- **Serverless**: code and queries are run on the cloud, you don't have to manage any server 
 
 other core advantages of cloud computing:
-- **elasticity**: instantly scale resources up/down based on demand -> you only pay for what you use and can handle sudden workload spikes smoothly
 - **managed services**: cloud providers offer fully managed platforms for DB, ML, analytics, security, etc. -> less ops complexity and speed up dev 
 - **global reach**: deploy apps across multiple geo regions -> low latency, redundancy 
 - **security and compliance**: heavily secured and compliant with local regulations
 
-note: **edge computing** is a distributed computing model that brings data processing and storage closer to the location where the data is generated (e.g. near sensors and devices vs. centralised cloud data centers)
+at the core of **cloud computing**:
+- **distributed computing**: model where multiple independent computers work together on a shared task through network communication, each handling a part of the workload -> [[#7.2. Big Data]]
+	- => cloud systems are essentially large-scale distributed systems.
+- quick note on differences:
+	- **cloud computing**: a way of **accessing** computing resources (computer, storage, etc.) over the internet (where -> cloud)
+	- **distributed computing**: a way of **computing**, where many computers work together on one problem (how, what -> big data tools)
+
+note: **edge computing** is a distributed computing model that brings data processing and storage closer to the location where the data is generated (e.g. near sensors and devices vs. centralised cloud data centres)
 -> the proximity helps reduce latency (lags, delays, response time) and thus more efficient real-time performance 
 -> enhanced data privacy and security too 
+
+### 6.2.0. X as a service
+The cloud runs on a "service" model, ie instead of buying a physical server, you can "rent" capabilities. 
+There are 3 main layers:
+- **IaaS** (Infrastructure as a Service): rent the raw computers (virtual servers) and storage -> you're responsible for everything else (OS, software) 
+- **PaaS** (Platform as a Service): rent a platform with the tools already installed -> you just upload your code and your data (like a data warehouse)
+- **SaaS** (Software as a Service): rent the finished application -> you just use it (like using PowerBI)
+
+| service model | what exactly you rent                     | examples                                                                                                         |
+| ------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| **IaaS**      | raw computers + storage                   | AWS S3 (simple storage service)<br>GCP storage<br>MS Azure Blob Storage                                          |
+| **PaaS**      | platform with the tools already installed | AWS Redshift (wh) or Sagemaker (MLOps)<br>GCP BigQuery (wh)<br>Snowflake (wh)<br>MS Azure Synapse Analytics (wh) |
+| **SaaS**      | finished application                      | MS PowerBI<br>VSCode Studio<br>Notion app                                                                        |
 
 ### 6.2.1. Cloud concepts
 ##### virtualisation
@@ -2184,11 +2273,12 @@ tools:
 
 ### 6.2.2. Cloud providers
 ##### AWS
-def: Amazon Web Services
-##### Google Cloud
-def: Google's suite of cloud computing services 
+def: Amazon Web Services, oldest, more mature, largest market share and most services
+##### Google Cloud Platform
+def: Google's suite of cloud computing services, strongest in ML/AI tools and big data analytics
 ##### Microsoft Azure
 def: Microsoft's cloud computing service for building, testing, deploying and managing applications and services
+-> integrated with microsoft products (excel, powerbi), which is popular for large enterprises
 
 # 7. Data Engineering
 def: discipline focused on designing, building and maintaining the **infrastructure and systems** that enable efficient collection, storage, processing and delivery of data. 
@@ -2409,20 +2499,30 @@ def: only collect data that you absolutely need
 ## 7.2. Big Data
 def: big data refers to the extremely large and complex datasets that are too big or diverse to be handled by traditional data processing methods. 
 -> characterised by the **5Vs**:
-- **volume**: massive amounts of data (e.g. petabyte = >1M gb)
-- **velocity**: high speed at which the data is generated and processed
-- **variety**: different types of data (structured, unstructured, semi-structured)
-- **veracity**: accuracy and trustworthiness 
-- **value**: useful insights and benefits extracted from the data
+- **volume**: massive **amounts** of data (e.g. petabyte = >1M gb)
+- **velocity**: high **speed** at which the data is generated and processed
+- **variety**: different **types** of data (structured, unstructured, semi-structured)
+- **veracity**: accuracy and **trustworthiness** (basically the quality)
+- **value**: **useful** insights and benefits extracted from the data
 
 -> **large-scale data processing**
+since 1 machine power might not be enough to handle this amount of data -> **Distributed Computing**
+def: **distributed computing** is a way of **computing**, where many computers work together on one problem
+
+And the key big data technologies are:
+- Apache Hadoop (distributed file system + disk-based)
+- Apache Spark (in-memory)
+- Apache Kafka (streaming)
+- NoSQL databases
+
+note: **apache** = free, not owned by anyone, open-source and functional -> [[data engineering notes#misc) apache]]
 
 Other core principle: **FAIR** data principle 
 - **F**indability: easy to find data for both humans and machines -> searchable, documented
 - **A**ccessibility: know how to access the data (authentication and authorisation) -> clear permissions
 - **I**nteroperability: data usually need to be integrated with other data, apps, workflows, etc. -> standard formats
 - **R**euse: ultimate goal of FAIR is to optimise reuse and replication of data -> clear context and quality
-### 7.2.1. Hadoop
+### 7.2.1. Apache Hadoop
 def: *open-source* framework for distributed **storage** and **processing** of large datasets across clusters of computers
 - core includes
 	- **HDFS** (hadoop distributed file system): splits and stores data across **multiple machines** (low-cost servers/computers i.e. **commodity hardware**)
@@ -2433,14 +2533,14 @@ def: *open-source* framework for distributed **storage** and **processing** of l
 - **batch processing**
 
 ### 7.2.2. Apache Spark
-def: fast, flexible, **in-memory** data processing engine (often used alongside Hadoop)
+def: the modern "upgrade" to Hadoop -> fast, flexible, **in-memory** data processing engine (often used alongside Hadoop)
 -> in-memory = data processing directly in a computer's RAM (memory) instead of slower storage/hard drives (disk) => **++ SPEED**
 -> RAM is limited in storage vs. disk 
 - in-memory >> traditional disk-based processing like MapReduce (-> Apache Spark faster than just Hadoop)
 - + offers batch processing, stream processing, ML, graph computations
 	- -> **unified analytics platform**
 
-### 7.2.3. Kafka
+### 7.2.3. Apache Kafka
 def: platform for **real-time data streaming** and messaging
 - **high-throughput**: capacity to process a large volume of data in a given time
 - fault tolerance 
@@ -2449,6 +2549,8 @@ def: platform for **real-time data streaming** and messaging
 ### 7.2.4. NoSQL
 def: type of DB designed for **flexibility** and **scalability** of unstructured or semi-structured data
 vs. traditional relational DB
+
+And they are designed to run on thousands of computers to handle **Volume** and **Velocity** of Big Data!
 
 Different data models supported:
 - **MongoDB** is a popular NoSQL db that stores data as JSON-like formats (**document** data model)
@@ -2627,6 +2729,7 @@ sources:
 - https://www.investopedia.com/terms/a/anova.asp
 - https://www.scribbr.com/statistics/chi-square-tests/
 - https://wandb.ai/mostafaibrahim17/ml-articles/reports/Understanding-L1-and-L2-regularization-techniques-for-optimized-model-training--Vmlldzo3NzYwNTM5
+- https://www.geeksforgeeks.org/data-science/p-value/
 - https://www.scribbr.com/statistics/students-t-table/
 - https://ishanjainoffical.medium.com/choosing-the-right-correlation-pearson-vs-spearman-vs-kendalls-tau-02dc7d7dd01d
 - https://www.kaggle.com/code/ryanholbrook/linear-regression-with-time-series
